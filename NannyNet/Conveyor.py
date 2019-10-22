@@ -1,41 +1,40 @@
 class Conveyor(object):
-    """description of class"""
     def __init__(self, maxResultLength):
-        self.__processor_list = [];
-        self.Result = None;
-        self.__maxResultlength = maxResultLength;
+        self.__processor_list = []
+        self.Result = None
+        self.__maxResultlength = maxResultLength
         
     def AddProcessor(self, processor):
-        self.__processor_list.append(processor);
+        self.__processor_list.append(processor)
 
     def Run(self):
-        self.Result = None;
+        self.Result = None
         while self.Result == None or self.Result.ended is False:
-            self.Result = ConveyorResult(self.Result, self.__maxResultlength);
-            self.Result.ended = False;
+            self.Result = ConveyorResult(self.Result, self.__maxResultlength)
+            self.Result.ended = False
             for processor in self.__processor_list:
                 try:
-                    success = processor.ProcessInput(self.Result);
+                    success = processor.ProcessInput(self.Result)
                 except Exception as e:
-                    self.Result.errors.append("Unknown error in " + processor.__class__.__name__ + ": " + str(e));
-                    return False;
+                    self.Result.errors.append("Unknown error in " + processor.__class__.__name__ + ": " + str(e))
+                    return False
                 if success is False:
-                    return False;
+                    return False
                 if self.Result.ended:
-                    return True;
+                    return True
 
     def Clean(self):
-        cleanResult = True;
+        cleanResult = True
         for processor in self.__processor_list:
             try:
                 if (not processor.Clean()):
-                    cleanResult = False;
+                    cleanResult = False
             except:
                 if (self.Result == None):
-                    self.Result = ConveyorResult();
-                self.Result.errors.append("Unknown error in Clean procedure of " + processor.__class__.__name__);
-                cleanResult = False;
-        return cleanResult;
+                    self.Result = ConveyorResult()
+                self.Result.errors.append("Unknown error in Clean procedure of " + processor.__class__.__name__)
+                cleanResult = False
+        return cleanResult
 
 
 class ConveyorResult(object):

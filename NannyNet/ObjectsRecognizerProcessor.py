@@ -1,3 +1,4 @@
+# Model: ssd_inception_v2_coco_2018_01_28
 from Processor import Processor
 import Conveyor
 import numpy as np

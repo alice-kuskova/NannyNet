@@ -24,9 +24,13 @@
     <Compile Include="Conveyor.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ImageShowProcessor2.py" />
     <Compile Include="ImageShowProcessor.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="StatisticsProcessor.py" />
+    <Compile Include="ObjectsRecognizerProcessor3.py" />
+    <Compile Include="ObjectsRecognizerProcessor2.py" />
     <Compile Include="ObjectsRecognizerProcessor.py">
       <SubType>Code</SubType>
     </Compile>
@@ -397,7 +401,10 @@
     <InterpreterReference Include="Global|VisualStudio|NannyNet" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="demo_result.mp4" />
+    <Content Include="demo_source_video.webm" />
     <Content Include="NannyNet.pdf" />
+    <Content Include="demo_result_console_screenshot.png" />
     <Content Include="readme.md" />
     <Content Include="requirements.txt" />
     <Content Include="tensorflow\models\research\object_detection\anchor_generators\__pycache__\flexible_grid_anchor_generator.cpython-36.pyc" />
