@@ -16,8 +16,8 @@ class Conveyor(object):
             for processor in self.__processor_list:
                 try:
                     success = processor.ProcessInput(self.Result);
-                except :
-                    self.Result.errors.append("Unknown error in " + processor.__class__.__name__);
+                except Exception as e:
+                    self.Result.errors.append("Unknown error in " + processor.__class__.__name__ + ": " + str(e));
                     return False;
                 if success is False:
                     return False;
@@ -45,7 +45,7 @@ class ConveyorResult(object):
         self.frameId = None;
         self.image = None;
         self.image_converted = None;
-        self.analysers = [];
+        self.analyzers = {};
         self.errors = [];
         self.ended = True;
 
