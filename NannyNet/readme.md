@@ -1,9 +1,4 @@
 # NannyNet
-1 октября 2019 г.
-Кускова Алиса
-11 “Л” класс 
-Школа № 2026, корпус 12
-Москва
 
 
 Ссылка на pdf с изображениями: <https://github.com/alice-kuskova/NannyNet/blob/master/NannyNet/NannyNet.pdf>
