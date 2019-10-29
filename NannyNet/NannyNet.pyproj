@@ -5,7 +5,7 @@
     <ProjectGuid>59ac0433-f4f9-4dbc-9b3a-649a7a57ea28</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>NannyNet.py</StartupFile>
-    <SearchPath>tensorflow;tensorflow\models\research\object_detection;tensorflow\models;tensorflow\models\research;tensorflow\models\research\object_detection\utils</SearchPath>
+    <SearchPath>tensorflow;tensorflow\models\research\object_detection;tensorflow\models;tensorflow\models\research;tensorflow\models\research\object_detection\utils;tf-openpose</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>NannyNet</Name>
@@ -28,6 +28,7 @@
     <Compile Include="ImageShowProcessor.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="PersonPoseRecognizerProcessor.py" />
     <Compile Include="StatisticsProcessor.py" />
     <Compile Include="ObjectsRecognizerProcessor3.py" />
     <Compile Include="ObjectsRecognizerProcessor2.py" />
@@ -389,6 +390,51 @@
     <Compile Include="tensorflow\models\research\object_detection\utils\vrd_evaluation_test.py" />
     <Compile Include="tensorflow\models\research\object_detection\utils\__init__.py" />
     <Compile Include="tensorflow\models\research\object_detection\__init__.py" />
+    <Compile Include="tf-openpose\models\graph\cmu\__init__.py" />
+    <Compile Include="tf-openpose\models\graph\mobilenet_thin\__init__.py" />
+    <Compile Include="tf-openpose\models\__init__.py" />
+    <Compile Include="tf-openpose\run.py" />
+    <Compile Include="tf-openpose\run_checkpoint.py" />
+    <Compile Include="tf-openpose\run_directory.py" />
+    <Compile Include="tf-openpose\run_video.py" />
+    <Compile Include="tf-openpose\run_webcam.py" />
+    <Compile Include="tf-openpose\scripts\broadcaster_ros.py" />
+    <Compile Include="tf-openpose\scripts\visualization.py" />
+    <Compile Include="tf-openpose\setup.py" />
+    <Compile Include="tf-openpose\tf_pose\common.py" />
+    <Compile Include="tf-openpose\tf_pose\datum_pb2.py" />
+    <Compile Include="tf-openpose\tf_pose\estimator.py" />
+    <Compile Include="tf-openpose\tf_pose\eval.py" />
+    <Compile Include="tf-openpose\tf_pose\mobilenet\conv_blocks.py" />
+    <Compile Include="tf-openpose\tf_pose\mobilenet\mobilenet.py" />
+    <Compile Include="tf-openpose\tf_pose\mobilenet\mobilenet_v2.py" />
+    <Compile Include="tf-openpose\tf_pose\mobilenet\__init__.py" />
+    <Compile Include="tf-openpose\tf_pose\networks.py" />
+    <Compile Include="tf-openpose\tf_pose\network_base.py" />
+    <Compile Include="tf-openpose\tf_pose\network_cmu.py" />
+    <Compile Include="tf-openpose\tf_pose\network_dsconv.py" />
+    <Compile Include="tf-openpose\tf_pose\network_mobilenet.py" />
+    <Compile Include="tf-openpose\tf_pose\network_mobilenet_thin.py" />
+    <Compile Include="tf-openpose\tf_pose\network_mobilenet_v2.py" />
+    <Compile Include="tf-openpose\tf_pose\pafprocess\pafprocess.py" />
+    <Compile Include="tf-openpose\tf_pose\pafprocess\setup.py" />
+    <Compile Include="tf-openpose\tf_pose\pafprocess\__init__.py" />
+    <Compile Include="tf-openpose\tf_pose\pose_augment.py" />
+    <Compile Include="tf-openpose\tf_pose\pose_dataset.py" />
+    <Compile Include="tf-openpose\tf_pose\pystopwatch.py" />
+    <Compile Include="tf-openpose\tf_pose\runner.py" />
+    <Compile Include="tf-openpose\tf_pose\slidingwindow\ArrayUtils.py" />
+    <Compile Include="tf-openpose\tf_pose\slidingwindow\Batching.py" />
+    <Compile Include="tf-openpose\tf_pose\slidingwindow\Merging.py" />
+    <Compile Include="tf-openpose\tf_pose\slidingwindow\RectangleUtils.py" />
+    <Compile Include="tf-openpose\tf_pose\slidingwindow\SlidingWindow.py" />
+    <Compile Include="tf-openpose\tf_pose\slidingwindow\WindowDistance.py" />
+    <Compile Include="tf-openpose\tf_pose\slidingwindow\__init__.py" />
+    <Compile Include="tf-openpose\tf_pose\tensblur\smoother.py" />
+    <Compile Include="tf-openpose\tf_pose\tensblur\__init__.py" />
+    <Compile Include="tf-openpose\tf_pose\train.py" />
+    <Compile Include="tf-openpose\tf_pose\__init__.py" />
+    <Compile Include="tf-openpose\__init__.py" />
     <Compile Include="VideoFileProcessor.py">
       <SubType>Code</SubType>
     </Compile>
@@ -601,6 +647,96 @@
     <Content Include="tensorflow\models\research\ssd_inception_v2_coco_2018_01_28\model.ckpt.meta" />
     <Content Include="tensorflow\models\research\ssd_inception_v2_coco_2018_01_28\pipeline.config" />
     <Content Include="tensorflow\models\research\ssd_inception_v2_coco_2018_01_28\saved_model\saved_model.pb" />
+    <Content Include="tf-openpose\.dockerignore" />
+    <Content Include="tf-openpose\.gitattributes" />
+    <Content Include="tf-openpose\.gitignore" />
+    <Content Include="tf-openpose\.git\config" />
+    <Content Include="tf-openpose\.git\description" />
+    <Content Include="tf-openpose\.git\HEAD" />
+    <Content Include="tf-openpose\.git\hooks\applypatch-msg.sample" />
+    <Content Include="tf-openpose\.git\hooks\commit-msg.sample" />
+    <Content Include="tf-openpose\.git\hooks\fsmonitor-watchman.sample" />
+    <Content Include="tf-openpose\.git\hooks\post-update.sample" />
+    <Content Include="tf-openpose\.git\hooks\pre-applypatch.sample" />
+    <Content Include="tf-openpose\.git\hooks\pre-commit.sample" />
+    <Content Include="tf-openpose\.git\hooks\pre-push.sample" />
+    <Content Include="tf-openpose\.git\hooks\pre-rebase.sample" />
+    <Content Include="tf-openpose\.git\hooks\pre-receive.sample" />
+    <Content Include="tf-openpose\.git\hooks\prepare-commit-msg.sample" />
+    <Content Include="tf-openpose\.git\hooks\update.sample" />
+    <Content Include="tf-openpose\.git\index" />
+    <Content Include="tf-openpose\.git\info\exclude" />
+    <Content Include="tf-openpose\.git\logs\HEAD" />
+    <Content Include="tf-openpose\.git\logs\refs\heads\master" />
+    <Content Include="tf-openpose\.git\logs\refs\remotes\origin\HEAD" />
+    <Content Include="tf-openpose\.git\objects\pack\pack-49a432d257e5a19a66dafe263c130300f5da0c8c.idx" />
+    <Content Include="tf-openpose\.git\objects\pack\pack-49a432d257e5a19a66dafe263c130300f5da0c8c.pack" />
+    <Content Include="tf-openpose\.git\packed-refs" />
+    <Content Include="tf-openpose\.git\refs\heads\master" />
+    <Content Include="tf-openpose\.git\refs\remotes\origin\HEAD" />
+    <Content Include="tf-openpose\CMakeLists.txt" />
+    <Content Include="tf-openpose\Dockerfile" />
+    <Content Include="tf-openpose\docker\Dockerfile" />
+    <Content Include="tf-openpose\docker\README.md" />
+    <Content Include="tf-openpose\etcs\dance.mp4" />
+    <Content Include="tf-openpose\etcs\experiments.md" />
+    <Content Include="tf-openpose\etcs\feature.md" />
+    <Content Include="tf-openpose\etcs\imgcat0.gif" />
+    <Content Include="tf-openpose\etcs\inference_result2.png" />
+    <Content Include="tf-openpose\etcs\loss_ll_heat.png" />
+    <Content Include="tf-openpose\etcs\loss_ll_paf.png" />
+    <Content Include="tf-openpose\etcs\openpose_macbook13_mobilenet2.gif" />
+    <Content Include="tf-openpose\etcs\openpose_macbook_cmu.gif" />
+    <Content Include="tf-openpose\etcs\openpose_macbook_mobilenet3.gif" />
+    <Content Include="tf-openpose\etcs\openpose_p40_cmu.gif" />
+    <Content Include="tf-openpose\etcs\openpose_p40_mobilenet.gif" />
+    <Content Include="tf-openpose\etcs\openpose_tx2_mobilenet3.gif" />
+    <Content Include="tf-openpose\etcs\reference.md" />
+    <Content Include="tf-openpose\etcs\ros.md" />
+    <Content Include="tf-openpose\etcs\training.md" />
+    <Content Include="tf-openpose\images\apink1.jpg" />
+    <Content Include="tf-openpose\images\apink1_crop.jpg" />
+    <Content Include="tf-openpose\images\apink1_crop_s1.jpg" />
+    <Content Include="tf-openpose\images\apink2.jpg" />
+    <Content Include="tf-openpose\images\apink3.jpg" />
+    <Content Include="tf-openpose\images\cat.jpg" />
+    <Content Include="tf-openpose\images\COCO_val2014_000000000357.jpg" />
+    <Content Include="tf-openpose\images\golf.jpg" />
+    <Content Include="tf-openpose\images\hand1.jpg" />
+    <Content Include="tf-openpose\images\hand1_small.jpg" />
+    <Content Include="tf-openpose\images\hand2.jpg" />
+    <Content Include="tf-openpose\images\handsup1.jpg" />
+    <Content Include="tf-openpose\images\p1.jpg" />
+    <Content Include="tf-openpose\images\p2.jpg" />
+    <Content Include="tf-openpose\images\p3.jpg" />
+    <Content Include="tf-openpose\images\p3_dance.png" />
+    <Content Include="tf-openpose\images\ski.jpg" />
+    <Content Include="tf-openpose\images\valid_person1.jpg" />
+    <Content Include="tf-openpose\launch\demo_video.launch" />
+    <Content Include="tf-openpose\LICENSE" />
+    <Content Include="tf-openpose\models\graph\cmu\download.sh" />
+    <Content Include="tf-openpose\models\graph\mobilenet_thin\graph.pb" />
+    <Content Include="tf-openpose\models\graph\mobilenet_thin\graph_freeze.pb" />
+    <Content Include="tf-openpose\models\graph\mobilenet_thin\graph_opt.pb" />
+    <Content Include="tf-openpose\models\graph\mobilenet_v2_large\graph_opt.pb" />
+    <Content Include="tf-openpose\models\graph\mobilenet_v2_small\graph_opt.pb" />
+    <Content Include="tf-openpose\models\numpy\download.sh" />
+    <Content Include="tf-openpose\models\pretrained\mobilenet_v1_0.50_224_2017_06_14\download.sh" />
+    <Content Include="tf-openpose\models\pretrained\mobilenet_v1_0.75_224_2017_06_14\download.sh" />
+    <Content Include="tf-openpose\models\pretrained\mobilenet_v1_1.0_224_2017_06_14\download.sh" />
+    <Content Include="tf-openpose\models\pretrained\resnet_v2_101\download.sh" />
+    <Content Include="tf-openpose\msg\BodyPartElm.msg" />
+    <Content Include="tf-openpose\msg\Person.msg" />
+    <Content Include="tf-openpose\msg\Persons.msg" />
+    <Content Include="tf-openpose\package.xml" />
+    <Content Include="tf-openpose\README.md" />
+    <Content Include="tf-openpose\requirements.txt" />
+    <Content Include="tf-openpose\tf_pose\pafprocess\numpy.i" />
+    <Content Include="tf-openpose\tf_pose\pafprocess\pafprocess.cpp" />
+    <Content Include="tf-openpose\tf_pose\pafprocess\pafprocess.h" />
+    <Content Include="tf-openpose\tf_pose\pafprocess\pafprocess.i" />
+    <Content Include="tf-openpose\tf_pose\pafprocess\pafprocess_wrap.cpp" />
+    <Content Include="tf-openpose\tf_pose\pafprocess\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="tensorflow\" />
@@ -651,6 +787,46 @@
     <Folder Include="tensorflow\models\research\ssd_inception_v2_coco_2018_01_28\" />
     <Folder Include="tensorflow\models\research\ssd_inception_v2_coco_2018_01_28\saved_model\" />
     <Folder Include="tensorflow\models\research\ssd_inception_v2_coco_2018_01_28\saved_model\variables\" />
+    <Folder Include="tf-openpose\" />
+    <Folder Include="tf-openpose\.git\" />
+    <Folder Include="tf-openpose\.git\hooks\" />
+    <Folder Include="tf-openpose\.git\info\" />
+    <Folder Include="tf-openpose\.git\logs\" />
+    <Folder Include="tf-openpose\.git\logs\refs\" />
+    <Folder Include="tf-openpose\.git\logs\refs\heads\" />
+    <Folder Include="tf-openpose\.git\logs\refs\remotes\" />
+    <Folder Include="tf-openpose\.git\logs\refs\remotes\origin\" />
+    <Folder Include="tf-openpose\.git\objects\" />
+    <Folder Include="tf-openpose\.git\objects\info\" />
+    <Folder Include="tf-openpose\.git\objects\pack\" />
+    <Folder Include="tf-openpose\.git\refs\" />
+    <Folder Include="tf-openpose\.git\refs\heads\" />
+    <Folder Include="tf-openpose\.git\refs\remotes\" />
+    <Folder Include="tf-openpose\.git\refs\remotes\origin\" />
+    <Folder Include="tf-openpose\.git\refs\tags\" />
+    <Folder Include="tf-openpose\docker\" />
+    <Folder Include="tf-openpose\etcs\" />
+    <Folder Include="tf-openpose\images\" />
+    <Folder Include="tf-openpose\launch\" />
+    <Folder Include="tf-openpose\models\" />
+    <Folder Include="tf-openpose\models\graph\" />
+    <Folder Include="tf-openpose\models\graph\cmu\" />
+    <Folder Include="tf-openpose\models\graph\mobilenet_thin\" />
+    <Folder Include="tf-openpose\models\graph\mobilenet_v2_large\" />
+    <Folder Include="tf-openpose\models\graph\mobilenet_v2_small\" />
+    <Folder Include="tf-openpose\models\numpy\" />
+    <Folder Include="tf-openpose\models\pretrained\" />
+    <Folder Include="tf-openpose\models\pretrained\mobilenet_v1_0.50_224_2017_06_14\" />
+    <Folder Include="tf-openpose\models\pretrained\mobilenet_v1_0.75_224_2017_06_14\" />
+    <Folder Include="tf-openpose\models\pretrained\mobilenet_v1_1.0_224_2017_06_14\" />
+    <Folder Include="tf-openpose\models\pretrained\resnet_v2_101\" />
+    <Folder Include="tf-openpose\msg\" />
+    <Folder Include="tf-openpose\scripts\" />
+    <Folder Include="tf-openpose\tf_pose\" />
+    <Folder Include="tf-openpose\tf_pose\mobilenet\" />
+    <Folder Include="tf-openpose\tf_pose\pafprocess\" />
+    <Folder Include="tf-openpose\tf_pose\slidingwindow\" />
+    <Folder Include="tf-openpose\tf_pose\tensblur\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

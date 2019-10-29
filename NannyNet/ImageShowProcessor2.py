@@ -22,13 +22,15 @@ class ImageShowProcessor(Processor):
         if (conveyorResult.image is not None):
            image_copy = conveyorResult.image.copy()
            
-           image_boxes = self._draw_boxes(
-               conveyorResult.image, 
-               conveyorResult.analyzers['ObjectsRecognizerProcessor']['boxes'],
-               conveyorResult.analyzers['ObjectsRecognizerProcessor']['classes'],
-               conveyorResult.analyzers['ObjectsRecognizerProcessor']['scores'],
-               max_boxes=MAX_BOXES, min_score=MIN_SCORE)
-
+           if ('ObjectsRecognizerProcessor' in conveyorResult.analyzers):
+               image_boxes = self._draw_boxes(
+                   conveyorResult.image, 
+                   conveyorResult.analyzers['ObjectsRecognizerProcessor']['boxes'],
+                   conveyorResult.analyzers['ObjectsRecognizerProcessor']['classes'],
+                   conveyorResult.analyzers['ObjectsRecognizerProcessor']['scores'],
+                   max_boxes=MAX_BOXES, min_score=MIN_SCORE)
+           else:
+               image_boxes = conveyorResult.image
            self._display_image(image_boxes, conveyorResult)
         return True
 

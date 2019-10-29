@@ -8,10 +8,11 @@ class StatisticsProcessor(Processor):
         self._found_objects = set()
 
     def ProcessInput(self, conveyorResult):
-        result = conveyorResult.analyzers['ObjectsRecognizerProcessor']
-        for i in range(result['num_detections']):
-            if result['scores'][i] >= MIN_SCORE:
-                self._found_objects = self._found_objects | set(result['classes'])
+        if ('ObjectsRecognizerProcessor' in conveyorResult.analyzers):
+            result = conveyorResult.analyzers['ObjectsRecognizerProcessor']
+            for i in range(result['num_detections']):
+                if result['scores'][i] >= MIN_SCORE:
+                    self._found_objects = self._found_objects | set(result['classes'])
         return True
 
     def Clean(self):

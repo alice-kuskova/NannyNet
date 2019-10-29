@@ -17,16 +17,17 @@ class ImageShowProcessor(Processor):
     def ProcessInput(self, conveyorResult):
         if (conveyorResult.image is not None):
            image_copy = conveyorResult.image.copy();
-           vis_util.visualize_boxes_and_labels_on_image_array(
-                image_copy,
-                np.squeeze(conveyorResult.analyzers['ObjectsRecognizerProcessor']['boxes']),
-                np.squeeze(conveyorResult.analyzers['ObjectsRecognizerProcessor']['classes']).astype(np.int32),
-                np.squeeze(conveyorResult.analyzers['ObjectsRecognizerProcessor']['scores']),
-                conveyorResult.analyzers['ObjectsRecognizerProcessor']['category_index'],
-                use_normalized_coordinates=True,
-                line_thickness=LINE_THICKNESS,
-                min_score_thresh=MIN_SCORE
-           )
+           if ('ObjectsRecognizerProcessor' in conveyorResult.analyzers):
+               vis_util.visualize_boxes_and_labels_on_image_array(
+                    image_copy,
+                    np.squeeze(conveyorResult.analyzers['ObjectsRecognizerProcessor']['boxes']),
+                    np.squeeze(conveyorResult.analyzers['ObjectsRecognizerProcessor']['classes']).astype(np.int32),
+                    np.squeeze(conveyorResult.analyzers['ObjectsRecognizerProcessor']['scores']),
+                    conveyorResult.analyzers['ObjectsRecognizerProcessor']['category_index'],
+                    use_normalized_coordinates=True,
+                    line_thickness=LINE_THICKNESS,
+                    min_score_thresh=MIN_SCORE
+               )
            cv2.imshow('Preview', image_copy)
            if cv2.waitKey(1) == ord('q'):
                conveyorResult.ended = True
