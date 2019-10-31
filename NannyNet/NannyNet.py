@@ -5,7 +5,7 @@ from VideoFileProcessor import VideoFileProcessor
 from ImageShowProcessor2 import ImageShowProcessor #compatible with ObjectsRecognizerProcessor2 and 3
 
 #from ObjectsRecognizerProcessor import ObjectsRecognizerProcessor #extremally fast but low quality
-from ObjectsRecognizerProcessor2 import ObjectsRecognizerProcessor #golden middle
+#from ObjectsRecognizerProcessor2 import ObjectsRecognizerProcessor #golden middle
 #from ObjectsRecognizerProcessor3 import ObjectsRecognizerProcessor #extremally slow but high quality
 
 from PersonPoseRecognizerProcessor import PersonPoseRecognizerProcessor
@@ -20,7 +20,7 @@ conv = Conveyor(5)
 
 # Add video -> frames processor
 param = {"filePath":'demo_source_video.webm', 
-         "fromFrame":100, "toFrame":-1, "frameStep":3}
+         "fromFrame":100, "toFrame":-1, "frameStep":4}
 proc = VideoFileProcessor(**param)
 conv.AddProcessor(proc)
 

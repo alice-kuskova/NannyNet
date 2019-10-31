@@ -24,7 +24,7 @@ class VideoFileProcessor(Processor):
                 conveyorResult.ended = True;
                 return True;
         if not self.__GetFrame(self.__lastFrame, conveyorResult):
-            conveyorResult.errors.append("VideoFileProcessor can not get frame " + self.__lastFrame + " from file " + self.__filePath);
+            conveyorResult.errors.append("VideoFileProcessor can not get frame " + str(self.__lastFrame) + " from file " + self.__filePath);
             return False;
         return True;
 

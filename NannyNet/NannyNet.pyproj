@@ -393,6 +393,7 @@
     <Compile Include="tf-openpose\models\graph\cmu\__init__.py" />
     <Compile Include="tf-openpose\models\graph\mobilenet_thin\__init__.py" />
     <Compile Include="tf-openpose\models\__init__.py" />
+    <Compile Include="tf-openpose\run_test.py" />
     <Compile Include="tf-openpose\run.py" />
     <Compile Include="tf-openpose\run_checkpoint.py" />
     <Compile Include="tf-openpose\run_directory.py" />

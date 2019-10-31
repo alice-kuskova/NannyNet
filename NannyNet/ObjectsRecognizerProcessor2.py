@@ -9,14 +9,17 @@ class ObjectsRecognizerProcessor(Processor):
     def __init__(self, **kwargs):
         module_handle = "https://tfhub.dev/google/openimages_v4/ssd/mobilenet_v2/1"
         self._detector = hub.load(module_handle).signatures['default']
+        self._session = tf.compat.v1.InteractiveSession()
+        self._session.run(tf.compat.v1.tables_initializer(name='hub_input'))
 
     def ProcessInput(self, conveyorResult):
         if (conveyorResult.image is not None):
             conveyorResult.image_converted = tf.image.convert_image_dtype(conveyorResult.image, tf.float32)[tf.newaxis, ...]
             # Perform the detection
             result = self._detector(conveyorResult.image_converted)
-            result = {key:value.numpy() for key,value in result.items()}
-            
+            for key,value in result.items():
+                result[key] = value.eval()
+
             boxes = result["detection_boxes"]
             scores = result["detection_scores"] 
             classes = result["detection_class_entities"]
@@ -33,5 +36,6 @@ class ObjectsRecognizerProcessor(Processor):
         return True
 
     def Clean(self):
+        self._session.close()
         return True
 
