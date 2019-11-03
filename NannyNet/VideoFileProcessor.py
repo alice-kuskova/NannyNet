@@ -8,7 +8,7 @@ class VideoFileProcessor(Processor):
         self.__fromFrame = kwargs["fromFrame"] if kwargs["fromFrame"] >= 2 else 1;
         self.__toFrame = None if kwargs["toFrame"] is None or kwargs["toFrame"] < self.__fromFrame else kwargs["toFrame"];
         self.__frameStep = kwargs["frameStep"] if kwargs["frameStep"] >= 1 else 1;
-        self.__lastFrame = None;
+        self.__currentFrame = None;
         self.__videoStream = None;
 
     def ProcessInput(self, conveyorResult):
@@ -16,15 +16,15 @@ class VideoFileProcessor(Processor):
             if self.__InitVideo() is False:
                 conveyorResult.errors.append("VideoFileProcessor can not read file "+self.__filePath);
                 return False;
-        if self.__lastFrame == None:
-            self.__lastFrame = self.__fromFrame;
+        if self.__currentFrame == None:
+            self.__currentFrame = self.__fromFrame;
         else:
-            self.__lastFrame = self.__lastFrame + self.__frameStep;
-            if self.__lastFrame > self.__toFrame:
+            self.__currentFrame = self.__currentFrame + self.__frameStep;
+            if self.__currentFrame > self.__toFrame:
                 conveyorResult.ended = True;
                 return True;
-        if not self.__GetFrame(self.__lastFrame, conveyorResult):
-            conveyorResult.errors.append("VideoFileProcessor can not get frame " + self.__lastFrame + " from file " + self.__filePath);
+        if not self.__GetFrame(self.__currentFrame, conveyorResult):
+            conveyorResult.errors.append("VideoFileProcessor can not get frame " + self.__currentFrame + " from file " + self.__filePath);
             return False;
         return True;
 

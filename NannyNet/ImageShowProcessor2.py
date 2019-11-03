@@ -1,4 +1,4 @@
-# press q to stop processing, pres space to pause/continue processing
+# press q to stop processing, press space to pause/continue processing
 
 from Processor import Processor
 import Conveyor
@@ -20,8 +20,6 @@ class ImageShowProcessor(Processor):
         
     def ProcessInput(self, conveyorResult):
         if (conveyorResult.image is not None):
-           image_copy = conveyorResult.image.copy()
-           
            image_boxes = self._draw_boxes(
                conveyorResult.image, 
                conveyorResult.analyzers['ObjectsRecognizerProcessor']['boxes'],
