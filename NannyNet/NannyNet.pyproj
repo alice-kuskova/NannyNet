@@ -448,6 +448,8 @@
     <InterpreterReference Include="Global|VisualStudio|NannyNet" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="demo_objects.mp4" />
+    <Content Include="demo_poses.mp4" />
     <Content Include="demo_result.mp4" />
     <Content Include="demo_source_video.webm" />
     <Content Include="NannyNet.pdf" />
