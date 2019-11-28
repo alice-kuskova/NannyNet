@@ -15,7 +15,7 @@ class PersonPoseRecognizerProcessor(Processor):
     def ProcessInput(self, conveyorResult):
         if (conveyorResult.image is not None):
             humans = self._detector.inference(conveyorResult.image, resize_to_default=True, upsample_size=2)
-            conveyorResult.image = TfPoseEstimator.draw_humans(conveyorResult.image, humans, imgcopy=False)
+            #conveyorResult.image = TfPoseEstimator.draw_humans(conveyorResult.image, humans, imgcopy=False)
             resultSave = {
                 "humans": humans,
             }

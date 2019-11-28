@@ -1,19 +1,8 @@
 from Conveyor import Conveyor
 from VideoFileProcessor import VideoFileProcessor
-
-#from ImageShowProcessor import ImageShowProcessor #compatible with ObjectsRecognizerProcessor
-from ImageShowProcessor2 import ImageShowProcessor #compatible with ObjectsRecognizerProcessor2 and 3
-
-#from ObjectsRecognizerProcessor import ObjectsRecognizerProcessor #extremally fast but low quality
-#from ObjectsRecognizerProcessor2 import ObjectsRecognizerProcessor #golden middle
-#from ObjectsRecognizerProcessor3 import ObjectsRecognizerProcessor #extremally slow but high quality
-
 from PersonPoseRecognizerProcessor import PersonPoseRecognizerProcessor
-
-from StatisticsProcessor import StatisticsProcessor
-
-import tensorflow as tf
-#tf.compat.v1.enable_eager_execution()
+from PersonPoseDrawProcessor import PersonPoseDrawProcessor
+from ImageShowPoseDrawProcessor import ImageShowPoseDrawProcessor
 
 # Create conveyor with 5 previous results cache
 conv = Conveyor(5)
@@ -24,21 +13,18 @@ param = {"filePath":'demo_source_video.webm',
 proc = VideoFileProcessor(**param)
 conv.AddProcessor(proc)
 
-# Add objects recognizer processor
-#proc2 = ObjectsRecognizerProcessor()
-#conv.AddProcessor(proc2)
-
 # Add human's pose recognizer processor
 proc5 = PersonPoseRecognizerProcessor()
 conv.AddProcessor(proc5)
 
-# Add show image processor previous processors results
-proc3 = ImageShowProcessor()
-conv.AddProcessor(proc3)
+# Add human's poses draw
+proc6 = PersonPoseDrawProcessor()
+conv.AddProcessor(proc6)
 
-# Show found objects list
-proc4 = StatisticsProcessor()
-conv.AddProcessor(proc4)
+# Add show image processor previous processors results
+proc7 = ImageShowPoseDrawProcessor()
+conv.AddProcessor(proc7)
+
 
 # Run conveyor
 print("Start processing")

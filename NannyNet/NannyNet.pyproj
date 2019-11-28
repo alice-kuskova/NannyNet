@@ -25,9 +25,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ImageShowProcessor2.py" />
+    <Compile Include="ImageShowPoseDrawProcessor.py" />
     <Compile Include="ImageShowProcessor.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="PersonPoseDrawProcessor.py" />
     <Compile Include="PersonPoseRecognizerProcessor.py" />
     <Compile Include="StatisticsProcessor.py" />
     <Compile Include="ObjectsRecognizerProcessor3.py" />
