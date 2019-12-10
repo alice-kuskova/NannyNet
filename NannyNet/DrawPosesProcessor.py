@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 from enum import Enum
 
-class PersonPoseDrawProcessor(Processor):
+class DrawPosesProcessor(Processor):
     def __init__(self, **kwargs):
         self.CocoPairs = [
             (1, 2), (1, 5), (2, 3), (3, 4), (5, 6), (6, 7), (1, 8), (8, 9), (9, 10), (1, 11),
@@ -22,11 +22,10 @@ class PersonPoseDrawProcessor(Processor):
     def ProcessInput(self, conveyorResult):
         humans = conveyorResult.analyzers["PersonPoseRecognizerProcessor"]["humans"]
         if (humans  is not None and conveyorResult.image is not None):
-            image = self.draw_humans(conveyorResult.image, humans, human_ids=None, imgcopy=True)
-            resultSave = {
-                "image": image
-            }
-            conveyorResult.analyzers[self.__class__.__name__] = resultSave
+            if (conveyorResult.image_result is None):
+                conveyorResult.image_result  = conveyorResult.image.copy()
+            conveyorResult.image_result = self.draw_humans(conveyorResult.image_result, humans, human_ids=None, imgcopy=False)
+            
         return True
 
     def Clean(self):

@@ -43,6 +43,7 @@ class ConveyorResult(object):
         self.dateTime = None;
         self.frameId = None;
         self.image = None;
+        self.image_result = None;
         self.image_converted = None;
         self.analyzers = {};
         self.errors = [];

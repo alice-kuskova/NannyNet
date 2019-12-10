@@ -24,12 +24,13 @@
     <Compile Include="Conveyor.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ImageShowProcessor2.py" />
-    <Compile Include="ImageShowPoseDrawProcessor.py" />
+    <Compile Include="DrawObjectsProcessor.py" />
+    <Compile Include="DrawPosesProcessor.py" />
     <Compile Include="ImageShowProcessor.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PersonPoseDrawProcessor.py" />
+    <Compile Include="ObjectsRecognizerProcessor4.py" />
+    <Compile Include="PersonPoseRecognizerProcessor2.py" />
     <Compile Include="PersonPoseRecognizerProcessor.py" />
     <Compile Include="StatisticsProcessor.py" />
     <Compile Include="ObjectsRecognizerProcessor3.py" />
@@ -862,6 +863,7 @@
   <ItemGroup>
     <Content Include="demo_objects.mp4" />
     <Content Include="demo_poses.mp4" />
+    <Content Include="demo_result_screen2.jpg" />
     <Content Include="demo_source_video.webm" />
     <Content Include="NannyNet.pdf" />
     <Content Include="demo_result_console_screenshot.png" />
