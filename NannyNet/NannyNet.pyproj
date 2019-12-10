@@ -408,6 +408,15 @@
     <Content Include="demo_source_video.webm" />
     <Content Include="NannyNet.pdf" />
     <Content Include="demo_result_console_screenshot.png" />
+    <Content Include="Presentation\demo1_conveyor.mp4" />
+    <Content Include="Presentation\demo2_objects.mp4" />
+    <Content Include="Presentation\demo3_poses.mp4" />
+    <Content Include="Presentation\demo_result_screen2.jpg" />
+    <Content Include="Presentation\Презентация NannyNet.odp" />
+    <Content Include="Presentation\Презентация NannyNet.pdf" />
+    <Content Include="Presentation\Презентация NannyNet.pptx" />
+    <Content Include="Presentation\Текст доклада NannyNet.docx" />
+    <Content Include="Presentation\Текст доклада NannyNet.pdf" />
     <Content Include="readme.md" />
     <Content Include="requirements.txt" />
     <Content Include="tensorflow\models\research\object_detection\anchor_generators\__pycache__\flexible_grid_anchor_generator.cpython-36.pyc" />
@@ -606,6 +615,7 @@
     <Content Include="tensorflow\models\research\ssd_inception_v2_coco_2018_01_28\saved_model\saved_model.pb" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Presentation\" />
     <Folder Include="tensorflow\" />
     <Folder Include="tensorflow\models\research\" />
     <Folder Include="tensorflow\models\" />
