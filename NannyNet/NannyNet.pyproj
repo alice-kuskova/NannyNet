@@ -401,7 +401,10 @@
     <InterpreterReference Include="Global|VisualStudio|NannyNet" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="demo_conveyor.mp4" />
+    <Content Include="demo_objects.mp4" />
     <Content Include="demo_result.mp4" />
+    <Content Include="demo_source_2.mp4" />
     <Content Include="demo_source_video.webm" />
     <Content Include="NannyNet.pdf" />
     <Content Include="demo_result_console_screenshot.png" />
