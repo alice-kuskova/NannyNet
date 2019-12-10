@@ -17,8 +17,15 @@ tf.compat.v1.enable_eager_execution()
 conv = Conveyor(5)
 
 # Add video -> frames processor
+
+#first video
 param = {"filePath":'demo_source_video.webm', 
          "fromFrame":100, "toFrame":-1, "frameStep":3}
+
+#second video
+#param = {"filePath":'demo_source_2.mp4', 
+#         "fromFrame":0, "toFrame":-1, "frameStep":3}
+
 proc = VideoFileProcessor(**param)
 conv.AddProcessor(proc)
 

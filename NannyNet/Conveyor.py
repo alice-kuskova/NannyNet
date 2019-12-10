@@ -14,6 +14,7 @@ class Conveyor(object):
             self.Result.ended = False
             for processor in self.__processor_list:
                 try:
+                    print("Start module: " + processor.__class__.__name__)
                     success = processor.ProcessInput(self.Result)
                 except Exception as e:
                     self.Result.errors.append("Unknown error in " + processor.__class__.__name__ + ": " + str(e))
